@@ -1,0 +1,15 @@
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.csproj.SuggestedBindingRedirects.cache
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.Index.resources
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.csproj.GenerateResource.cache
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.csproj.CoreCompileInputs.cache
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\karaokeAB.exe.config
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\karaokeAB.exe
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\AWSSDK.Core.dll
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\INIFileParser.dll
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\AWSSDK.Core.pdb
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\AWSSDK.Core.xml
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Tst\INIFileParser.xml
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.Properties.Resources.resources
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.csproj.CopyComplete
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.exe
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Tst\karaokeAB.csproj.AssemblyReference.cache
