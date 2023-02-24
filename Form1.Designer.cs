@@ -1,7 +1,7 @@
 ﻿using System;
 using Vlc.DotNet.Core;
 
-namespace karaokeAB
+namespace KaraokePrebelli
 {
 	partial class Index
 	{
@@ -40,7 +40,9 @@ namespace karaokeAB
 			this.lblNomeTrecho = new System.Windows.Forms.Label();
 			this.lblTrecho = new System.Windows.Forms.Label();
 			this.vlcControl1 = new Vlc.DotNet.Forms.VlcControl();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// txtNumero
@@ -49,7 +51,7 @@ namespace karaokeAB
 			this.txtNumero.BackColor = System.Drawing.Color.Black;
 			this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtNumero.ForeColor = System.Drawing.Color.Yellow;
-			this.txtNumero.Location = new System.Drawing.Point(610, 664);
+			this.txtNumero.Location = new System.Drawing.Point(610, 662);
 			this.txtNumero.Name = "txtNumero";
 			this.txtNumero.Size = new System.Drawing.Size(200, 62);
 			this.txtNumero.TabIndex = 0;
@@ -154,10 +156,23 @@ namespace karaokeAB
 			this.vlcControl1.TabIndex = 7;
 			this.vlcControl1.TabStop = false;
 			this.vlcControl1.Text = "player";
-			this.vlcControl1.Visible = false;
 			this.vlcControl1.VlcLibDirectory = ((System.IO.DirectoryInfo)(resources.GetObject("vlcControl1.VlcLibDirectory")));
 			this.vlcControl1.VlcMediaplayerOptions = null;
+			this.vlcControl1.EndReached += new System.EventHandler<Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs>(this.vlcControl1_EndReached);
 			this.vlcControl1.Playing += new System.EventHandler<Vlc.DotNet.Core.VlcMediaPlayerPlayingEventArgs>(this.vlcControl1_Playing);
+			this.vlcControl1.Stopped += new System.EventHandler<Vlc.DotNet.Core.VlcMediaPlayerStoppedEventArgs>(this.vlcControl1_Stopped_1);
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(1366, 788);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox1.TabIndex = 8;
+			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// Index
 			// 
@@ -166,9 +181,8 @@ namespace karaokeAB
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(1350, 752);
+			this.ClientSize = new System.Drawing.Size(1350, 749);
 			this.ControlBox = false;
-			this.Controls.Add(this.vlcControl1);
 			this.Controls.Add(this.lblTrecho);
 			this.Controls.Add(this.lblNomeTrecho);
 			this.Controls.Add(this.lblCantor);
@@ -176,6 +190,8 @@ namespace karaokeAB
 			this.Controls.Add(this.lblMusica);
 			this.Controls.Add(this.lblNomeMusica);
 			this.Controls.Add(this.txtNumero);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.vlcControl1);
 			this.DoubleBuffered = true;
 			this.Name = "Index";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -184,6 +200,7 @@ namespace karaokeAB
 			this.Load += new System.EventHandler(this.Index_Load);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumero_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -204,6 +221,7 @@ namespace karaokeAB
 		private System.Windows.Forms.Label lblNomeTrecho;
 		private System.Windows.Forms.Label lblTrecho;
 		public Vlc.DotNet.Forms.VlcControl vlcControl1;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
 

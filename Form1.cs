@@ -1,4 +1,5 @@
-﻿using Amazon.Runtime.Internal.Util;
+﻿
+using Amazon.Runtime.Internal.Util;
 using IniParser;
 using IniParser.Model;
 using System;
@@ -10,11 +11,12 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static karaokeAB.Program;
 
-namespace karaokeAB
+
+namespace KaraokePrebelli
 {
 	
 
@@ -27,7 +29,7 @@ namespace karaokeAB
 		bool encontrado = false;
 		String pesquisado = "";
 		FullScreen fullScreen = new FullScreen();
-
+		var status = vlcControl1.State;
 		public Index()
 		{
 			InitializeComponent();
@@ -119,49 +121,67 @@ namespace karaokeAB
 				lblTrecho.Visible = false;
 			}
 		}
-		
-		private void txtNumero_KeyDown(object sender, KeyEventArgs e)
+		object senderGeral = new object();
+		private async void txtNumero_KeyDown(object sender, KeyEventArgs e)
 		{
+			senderGeral = sender;
 			var tecla = e.KeyCode;
-			if(txtNumero.Text.Length >= 4 && e.KeyCode == Keys.Enter && encontrado)
+			if (txtNumero.Text.Length >= 4 && e.KeyCode == Keys.Enter && encontrado)
 			{
+
+
+				playVideo();
 				
-				
-				var url = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +"/musicas/" + video;
-				vlcControl1.Visible = true;
+
+
+
+				}
+				if (e.KeyCode == Keys.Up)
+				{
+
+				}
+				if (e.KeyData.ToString() == "Down")
+				{
+					vlcControl1.Audio.Channel -= 5;
+				}
+
+				if (e.KeyData.ToString() == "Escape")
+				{
+					fechaVideo();
+
+				}
+			
+			
+
+
+
+		}
+		public void playVideo()
+		{
+			
+			var url = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "/musicas/" + video;
+			vlcControl1.Play(new Uri(url));
+
+			
+			
+				vlcControl1.BringToFront();
 				vlcControl1.VlcMediaPlayer.Video.FullScreen = true;
 				vlcControl1.Show();
 				vlcControl1.Video.FullScreen = true;
-				
-				vlcControl1.Play(new Uri(url));
-
-				var status = vlcControl1.State;
-
-
-			}
-			if (e.KeyCode == Keys.Up)
-			{
-				
-			}
-			if (e.KeyData.ToString() == "Down")
-			{
-				vlcControl1.Audio.Channel -= 5;
-			}
 			
-		if (e.KeyData.ToString() == "Escape")
-			{
-				vlcControl1.Stop();
-				vlcControl1.Visible = false;
-				lblNomeMusica.Visible = false;
-				lblMusica.Visible = false;
-				lblCantor.Visible = false;
-				lblNomeCantor.Visible = false;
-				lblNomeTrecho.Visible = false;
-				lblTrecho.Visible = false;
-				txtNumero_Click(null, null);
-			}
+			
+			/*
+			vlcControl1.SendToBack();
+			vlcControl1.SendToBack();
+			vlcControl1.Stop();
+			lblNomeMusica.Visible = false;
+			lblMusica.Visible = false;
+			lblCantor.Visible = false;
+			lblNomeCantor.Visible = false;
+			lblNomeTrecho.Visible = false;
+			lblTrecho.Visible = false;
+			txtNumero_Click(null, null);*/
 		}
-
 		private void label1_Click(object sender, EventArgs e)
 		{
 
@@ -171,7 +191,28 @@ namespace karaokeAB
 		{
 
 		}
+		public void fechaVideo()
+		{
+			if (vlcControl1.State.ToString() == "Stopped")
+			{
 
+			}
+			else { vlcControl1.Stop(); }
+			vlcControl1.SendToBack();
+			vlcControl1.SendToBack();
+			lblNomeMusica.Visible = false;
+			lblMusica.Visible = false;
+			lblCantor.Visible = false;
+			lblNomeCantor.Visible = false;
+			lblNomeTrecho.Visible = false;
+			lblTrecho.Visible = false;
+			txtNumero_Click(null, null);
+			
+			
+			
+
+
+		}
 		private void lblNomeMusica_Click(object sender, EventArgs e)
 		{
 
@@ -192,6 +233,71 @@ namespace karaokeAB
 		private void vlcControl1_Playing(object sender, Vlc.DotNet.Core.VlcMediaPlayerPlayingEventArgs e)
 		{
 		
+			
+			
 		}
+		
+		private void vlcControl1_EndReached(object sender, Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs e)
+		{
+			//SendKeys.SendWait("{ESC}");
+			
+			/*vlcControl1.Invoke(new Action(() =>
+		   {
+			   vlcControl1.Stop();
+			   vlcControl1.SendToBack();
+			   
+		   }));
+			lblNomeMusica.Invoke(new Action(() =>
+			{
+				lblNomeMusica.Visible = false;
+				lblNomeMusica.Text = "";
+			}));
+			lblMusica.Invoke(new Action(() =>
+			   {
+				   lblMusica.Visible = false;
+			   }));
+			lblCantor.Invoke(new Action(() =>
+			{
+				lblCantor.Visible = false;
+			}));
+			lblNomeCantor.Invoke(new Action(() =>
+			{
+				lblNomeCantor.Visible = false;
+			}));
+			lblNomeTrecho.Invoke(new Action(() =>
+			{
+				lblNomeTrecho.Visible = false;
+			}));
+			lblTrecho.Invoke(new Action(() =>
+			{
+				lblTrecho.Visible = false;
+
+			}));
+
+
+
+
+			
+			txtNumero_Click(null, null);*/
+
+
+			//txtNumero_KeyDown(sender, pressionarEsc);
+
+
+
+
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void vlcControl1_Stopped_1(object sender, Vlc.DotNet.Core.VlcMediaPlayerStoppedEventArgs e)
+		{
+		
+			
+		}
+		
 	}
 }

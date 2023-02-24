@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
 
-namespace karaokeAB
+namespace KaraokePrebelli
 {
     public class FullScreen
     {

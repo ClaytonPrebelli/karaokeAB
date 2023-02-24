@@ -58,3 +58,7 @@ C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Debug\karaokeAB.csproj.CopyComplet
 C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Debug\karaokeAB.exe
 C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Debug\karaokeAB.pdb
 C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Debug\karaokeAB.csproj.AssemblyReference.cache
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Debug\karaokeAB.exe.manifest
+C:\Users\prebe\Desktop\Projetos\karaokeAB\bin\Debug\karaokeAB.application
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Debug\karaokeAB.exe.manifest
+C:\Users\prebe\Desktop\Projetos\karaokeAB\obj\Debug\karaokeAB.application
